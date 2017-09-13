@@ -6,6 +6,7 @@
 <%= form_tag stores_path, :method => :get do %>
     <p>
       <%= text_field_tag :search, params[:search] %>
+      <%= select_tag :distance, options_for_select(1.upto(10).map{|i|["#{i}km",i]}, params[:distance]) %>圏内
       <%= submit_tag "Search Near", :name => nil %>
     </p>
 <% end %>
