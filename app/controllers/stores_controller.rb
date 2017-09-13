@@ -5,7 +5,7 @@ class StoresController < ApplicationController
   # GET /stores.json
   def index
     if params[:search].present? and params[:distance].present?
-      @stores = Store.near(params[:search], params[:distance]).where('id < 10')
+      @stores = Store.near(params[:search], params[:distance])
     else
       @stores = Store.all
     end
