@@ -42,3 +42,13 @@ bower.json
 
 # Ignore Byebug command history file.
 .byebug_history
+
+
+
+.env
+.env.dev
+
+/.bundle
+/.idea
+
+.DS_Store

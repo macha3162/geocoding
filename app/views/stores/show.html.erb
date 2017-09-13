@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @store.address %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @store.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @store.longitude %>
+</p>
+
+
+<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@store.latitude}%2C#{@store.longitude}" %>
+
+<h3>Nearby locations</h3>
+<ul>
+  <% for location in @store.nearbys(10) %>
+      <li><%= link_to location.address, location %> (<%= location.distance.round(2) %> km)</li>
+  <% end %>
+</ul>
+
+<%= link_to 'Edit', edit_store_path(@store) %> |
+<%= link_to 'Back', stores_path %>
